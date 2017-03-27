@@ -1,4 +1,6 @@
+
 'use strict'
+
 const webpack           = require('webpack');
 const path              = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -21,9 +23,7 @@ const config = {
     colors:  true,
     reasons: true,
   },
-  resolve: {
-    extensions: ['', '.js', '.jsx'],
-  },
+
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
@@ -43,19 +43,18 @@ const config = {
   ],
 
   module: {
-    include: path.join(__dirname, 'src'),
     loaders: [
       { test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader') },
       { test: /\.(png|gif|jpg)$/, loader: 'file-loader?name=/images/[name].[ext]' },
       { test: /\.ico$/, loader: 'file-loader?name=/[name].[ext]' },
       { test: /\.jsx?$/, loader: 'babel' },
       {
-        test: /\.otf(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'file-loader?name=/fonts/[name].[ext]'
-      },
-      {
         test:   /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'url-loader?limit=100&mimetype=application/font-woff&name=/fonts/[name].[ext]',
+      },
+      {
+        test: /\.otf(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'file-loader?name=/fonts/[name].[ext]'
       },
       {
         test:   /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
