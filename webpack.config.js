@@ -1,6 +1,5 @@
 
 'use strict'
-
 const webpack           = require('webpack');
 const path              = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -11,7 +10,7 @@ const BUILD_DIR         = path.resolve(__dirname, 'dist');
 const APP_DIR           = path.resolve(__dirname, 'src');
 
 const config = {
-  entry:  `${APP_DIR}/index.js`,
+  entry:  ['whatwg-fetch', `${APP_DIR}/index.js`],
   output: {
     path:     BUILD_DIR,
     filename: '/js/[name].js',
@@ -31,11 +30,59 @@ const config = {
       },
     }),
     new HtmlWebpackPlugin({
-      title:      'Edtronics',
+      title:      'Edtronics – Official Home Page',
       xhtml:      true,
       inject:     false,
       template:   htmlTemplate,
       appMountId: 'root-container',
+      favicon: './favicons/brand-logo.jpg',
+      meta: [
+         {
+            name: "description",
+            content: " We specialize in research,  designing, developing and manufacturing educational electronics, computer softwares / hardwares and online services that intend for education purposes"
+         },
+         {
+            name:"keywords",
+            content:"education, edtech, hardware technology, software"
+         },
+         {
+            name: "author",
+            content: "EDTRONICS"
+         },
+         {
+            content: "Content-Type",
+            name: "http-equiv"
+         },
+         {
+            content: "text/html; charset=UTF-8",
+            name: "content"
+         },
+         {
+            name: "viewport",
+            content: "width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0"
+         },
+         {
+            property:"og:url",
+            content: "http://www.edtronics.com"
+         },
+         {
+            property: "og:type",
+            content: "website"
+         },
+         {
+            property: "og:title",
+            content:"Tanach Study"
+         },
+         {
+            name: "theme-color",
+            content: "#ffffff"
+         }
+      ],
+      links: [
+         "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css",
+         "https://fonts.googleapis.com/css?family=Raleway",
+         "https://fonts.googleapis.com/css?family=Candal"
+      ],
     }),
     new ExtractTextPlugin('/css/[name].css', {
       allChunks: true,
