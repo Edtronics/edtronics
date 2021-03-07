@@ -1,0 +1,26 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.19.0
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:extend:20180424':
+    - bcrypt > node-pre-gyp > request > extend:
+        patched: '2021-03-07T23:11:19.716Z'
+  'npm:hoek:20180212':
+    - bcrypt > node-pre-gyp > request > hawk > hoek:
+        patched: '2021-03-07T23:11:19.716Z'
+    - bcrypt > node-pre-gyp > request > hawk > boom > hoek:
+        patched: '2021-03-07T23:11:19.716Z'
+    - bcrypt > node-pre-gyp > request > hawk > sntp > hoek:
+        patched: '2021-03-07T23:11:19.716Z'
+    - bcrypt > node-pre-gyp > request > hawk > cryptiles > boom > hoek:
+        patched: '2021-03-07T23:11:19.716Z'
+  'npm:moment:20170905':
+    - jsonwebtoken > joi > moment:
+        patched: '2021-03-07T23:11:19.716Z'
+  'npm:stringstream:20180511':
+    - bcrypt > node-pre-gyp > request > stringstream:
+        patched: '2021-03-07T23:11:19.716Z'
+  'npm:tough-cookie:20170905':
+    - bcrypt > node-pre-gyp > request > tough-cookie:
+        patched: '2021-03-07T23:11:19.716Z'
